@@ -33,12 +33,34 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+	    <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.1.1</version>
+
+            <configuration>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+
+        </plugin>
         </plugins>
     </build>
     <packaging>jar</packaging>
 
     <properties>
-        <confluent.version>5.5.2</confluent.version>
+        <confluent.version>5.4.1</confluent.version>
     </properties>
 
     <repositories>
@@ -62,7 +84,7 @@
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>connect-api</artifactId>
-            <version>2.3.0</version>
+            <version>2.4.0</version>
         </dependency>
     </dependencies>
 
