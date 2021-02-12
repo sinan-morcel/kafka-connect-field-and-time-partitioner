@@ -100,7 +100,7 @@ public final class FieldAndTimeBasedPartitioner<T> extends TimeBasedPartitioner<
                     final String partitionField = (String) DataUtils.getNestedFieldValue(value, fieldName);
 
                     if (formatPath) {
-                        builder.append(String.join(DELIMITER_EQ, fieldName, partitionField));
+                        builder.append(String.join(DELIMITER_EQ, "_" + fieldName, partitionField));
                     } else {
                         builder.append(partitionField);
                     }
